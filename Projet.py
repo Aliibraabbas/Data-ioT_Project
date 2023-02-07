@@ -40,70 +40,7 @@ html = """<!DOCTYPE html><html>
 <head><meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
             <style>
-                html {
-                    font-family: Helvetica;
-                    display: inline-block;
-                    margin: 0px auto;
-                    text-align: center;
-                }
-                h1 {
-                    color: #0F3376;
-                    padding: 2vh;
-                }
 
-                p{
-                    display: inline-block ;
-                    font-weight: bold;
-                    font-size: 12px;
-                }
-                .Button {           
-                    border-radius: 31px;           
-                    display: inline-block;
-                    cursor: pointer;
-                    color: #ffffff;
-                    font-family: Arial;
-                    font-size: 17px;
-                    font-weight: bold;
-                    font-style: italic;
-                    padding: 17px 19px;
-                    text-decoration: none;           
-                }
-                .ButtonR {
-                    background-color: #ec4949;            
-                    border: 6px solid #991f1f;           
-                    text-shadow: 0px 2px 2px #471e1e;
-                }
-                .ButtonR:hover {
-                    background-color: #f51616;
-                }
-
-                .Button:active {
-                    position: relative;
-                    top: 1px;
-                }
-                .ButtonG {
-                    background-color: #49ec56;            
-                    border: 6px solid #23991f;          
-                    text-shadow: 0px 2px 2px #1e4723;
-                }
-                .ButtonG:hover {
-                    background-color: #29f516;
-                }  
-                .ButtonB {
-                    background-color: #4974ec;           
-                    border: 6px solid #1f3599;         
-                    text-shadow: 0px 2px 2px #1e2447;
-                }
-                .ButtonB:hover {
-                    background-color: #165df5;
-                }
-                .buttonRed{
-                    background-color: #ec4949;            
-                    border: 1px solid #991f1f; 
-                    border-radius: 15px; 
-                     padding: 10px 12px;
-                }
-            
             </style>
 </head>
 <body><center><h1>Control Panel</h1></center><br><br>
@@ -136,3 +73,12 @@ while max_wait > 0:
     max_wait -= 1
     print('waiting for connection...')
     time.sleep(1)
+
+
+if wlan.status() != 3:
+    raise RuntimeError('network connection failed')
+else:
+    print('Connected')
+    status = wlan.ifconfig()
+    print( 'ip = ' + status[0] )
+    
