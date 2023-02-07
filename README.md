@@ -16,3 +16,6 @@ Nous allons créer un serveur HTTP simple à l'aide d'un Raspberry Pi Pico W. Ce
 ## Team
 - [@Aliibraabbas](https://github.com/Aliibraabbas)
 - [@RyukiAkatsuki](https://github.com/RyukiAkatsuki)
+
+## Schema 📷 
+<img  alt="Breadboard"  src="../image/Breadboard.jpeg">
