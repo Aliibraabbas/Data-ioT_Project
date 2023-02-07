@@ -7,3 +7,9 @@
 Nous allons créer un serveur HTTP simple à l'aide d'un Raspberry Pi Pico W. Ce serveur sera accessible depuis un réseau WiFi local et pourra être utilisé pour lire des capteurs et contrôler le matériel - dans notre cas, nous conduirons une LED a .
 
 
+## Les besoins
+- Raspberry Pi Pico W
+- Breadboard
+- LED 
+- Jumper Wire
+
