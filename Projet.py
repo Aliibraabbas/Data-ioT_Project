@@ -150,6 +150,15 @@ while True:
         ledState = "Blue light is OFF" if led.duty_u16() == 0 else "Blue light is ON" 
         led2State = "Red light is OFF" if led.duty_u16() == 0 else "Red light is ON" 
         led3State = "Green light is OFF" if led.duty_u16() == 0 else "Green light is ON" 
+
+        
+        
+        stateis = ledState + " and " + led2State  + "and" + led3State
+        response = html % stateis
+        cl.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
+        cl.send(response)
+        cl.close()
+        
     
  
         
