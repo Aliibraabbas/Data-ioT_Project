@@ -13,3 +13,6 @@ Nous allons créer un serveur HTTP simple à l'aide d'un Raspberry Pi Pico W. Ce
 - LED 
 - Jumper Wire
 
+## Team
+- [@Aliibraabbas](https://github.com/Aliibraabbas)
+- [@RyukiAkatsuki](https://github.com/RyukiAkatsuki)
