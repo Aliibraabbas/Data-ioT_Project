@@ -90,4 +90,69 @@ s.bind(addr)
 s.listen(1)
 print('listening on', addr)
 
+
+
+while True:
+
+    try:          
+
+        val = adc.read_u16()
+        val = val * (3.3/65535)
+        print(round(val, 2), "V")
+        time.sleep_ms(100) 
+
+
+        cl, addr = s.accept()
+        print('client connected from', addr)
+        request = cl.recv(1024)
+        print("request:")
+        print(request)
+        request = str(request)
+        led_on = request.find('led=on')
+        led_off = request.find('led=off')
+        led2_on = request.find('led2=on')
+        led2_off = request.find('led2=off')
+        led3_on = request.find('led3=on')
+        led3_off = request.find('led3=off')
+        
+        print( 'led on = ' + str(led_on))
+        print( 'led off = ' + str(led_off))
+        print( 'led2 on = ' + str(led2_on))
+        print( 'led2 off = ' + str(led2_off))
+        print( 'led3 on = ' + str(led3_on))
+        print( 'led3 off = ' + str(led3_off))
+        
+        if led_on == 8:
+            print("led on")
+            led.duty_u16(13000)
+        
+        if led2_on == 8:
+            print("led on")
+            led2.duty_u16(13000)
+
+        
+        if led3_on == 8:
+            print("led on")
+            led3.duty_u16(13000)
+        
+        if led_off == 8:
+            print("led off")
+            led.duty_u16(0)
+
+        if led2_off == 8:
+            print("led2 off")
+            led2.duty_u16(0)
+
+        if led3_off == 8:
+            print("led3 off")
+            led3.duty_u16(0)
+        
+        ledState = "Blue light is OFF" if led.duty_u16() == 0 else "Blue light is ON" 
+        led2State = "Red light is OFF" if led.duty_u16() == 0 else "Red light is ON" 
+        led3State = "Green light is OFF" if led.duty_u16() == 0 else "Green light is ON" 
     
+ 
+        
+    except OSError as e:
+        cl.close()
+        print('connection closed')
